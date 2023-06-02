@@ -1,6 +1,6 @@
 # THP_BLE_ESP32_MS8607- Temperature, Pressure, and Humidity -- ESP32C3 used for servers and Raspberry Pi used to run the Bluetooth LE client.
 
-This project creastes two ESP32 servers.  Each is attached to a TE MS8607 sensor.  Each sensor returns the temperature, pressure, and humidity as characteristics values. 
+This project creates two ESP32 servers.  Each is attached to a TE MS8607 sensor.  Each sensor returns the temperature, pressure, and humidity as characteristics values. 
 The idea was to place one sensor inside and the other outside and let the client computer plot readings.  This should be useful for HVAC monitoring and help
 monitor the environment in a house, lab, or other area.  The connections to the server are made via a wireless BLE client using Python BLEAK.   The sensors used the 
 Adrafruit MS8607 library available in Arduino IDE code examples.  
