@@ -1,7 +1,7 @@
 # THP_BLE_ESP32_MS8607- Temperature, Pressure, and Humidity -- ESP32C3 used for servers and Raspberry Pi used to run the Bluetooth LE client.
 
-This project connects two ES932 microcontrollers with temperature, humidity, and pressure sensors to monitoring computer system via Bluetooth low energy.  In the initial
-applicatiion TE MS8607 sensors where used.  Later development will evaluate the BME 280 and 680 sensors as well as remote thermocouple. 
+This project connects two ES32C3 microcontrollers with temperature, humidity, and pressure sensors to a monitoring computer system via Bluetooth low energy.  In the initial
+applicatiion TE MS8607 sensors where used.  Later development will evaluate the BME 280 and 680 sensors as well as remote thermocouples. 
 
 The idea was to place one sensor inside and the other outside and let the client computer plot readings.  This should be useful for HVAC monitoring and help
 monitor the environment in a house, lab, or other area.  The connections to the server are made via a wireless BLE client using Python BLEAK.   The sensors used the 
@@ -22,8 +22,11 @@ If you download the monitoring program you should replace the sensor characteris
 server to post your desired name for your BLE device.  I verified each BLE address using the Nrf app on my cell phone to connect to the device and then read the characteristic values.  
 That app is also useful to check the device signal strength.  
 
-My ESP32C3 did not use the default I2C lines that the  MS8607 library expected.  By addoing Wire.begin(SDA,SCL) to  the setup section or the program I was able to overide the default values.  I set the pins for my devices before the program starts the MS8607.   The BME code examples have already built in an option to select different I2C pins so this step should not be necessary with that sensor.  If wire has already begun apparently the MS 8607 library does not try to modify.   Another issue was that when both sensors used the same pins I appeared to get a conflict.  I used pins 5,6 for one device and 2,3 for the other and this seemed to fix that issue.
+My ESP32C3 did not use the default I2C lines that the  MS8607 library expected.  By addoing Wire.begin(SDA,SCL) to  the setup section or the program I was able to overide the default values.  
+I set the pins for my devices before the program starts the MS8607.   The BME code examples have already built in an option to select different I2C pins so this step should 
+not be necessary with that sensor.  If wire has already begun apparently the MS 8607 library does not try to modify.   Another issue was that when both sensors used the same pins 
+I appeared to get a conflict.  I used pins 5,6 for one device and 2,3 for the other and this seemed to fix that issue.
 
-Msny thanks are due to Arduino, ESPressif, Stackoverflow, and all of the python code teams available via google.
+Msny thanks are due to Arduino, ESPressif, Stackoverflow, Github and all of the python code teams available via google.
 
 Waszee
